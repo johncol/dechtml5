@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>
+			workesrs
+		</title>
+		<style>
+		</style>
+	</head>
+	<body>
+		<form>
+			<input type="text" id="like" name="like" list="likes" />
+			<datalist id="likes">
+				<option value="sport">sport</option>
+				<option value="music">music</option>
+				<option value="food">food</option>
+				<option value="women">women</option>
+			</datalist>
+
+			<br />
+			<output for="like"></output>
+			<br />
+			<button type="button">lookup</button>
+		</form>
+		<script src="../jquery-1.9.1.js">
+		</script>
+		<script>
+			var like = document.querySelector('#like');
+			var output = document.querySelector('output');
+			var thread = new Worker('test1-worker.js');
+
+			function sendLike() {
+				thread.postMessage(like.value);
+			}
+
+			document.querySelector('form').addEventListener('submit', function(event) {
+				event.preventDefault();
+				sendLike();
+			});
+
+			document.querySelector('button').addEventListener('click', sendLike);
+			
+			thread.addEventListener('message', function(event) {
+				output.value = event.data;
+			});
+		</script>
+	</body>
+</html>
