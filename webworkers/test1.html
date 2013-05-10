@@ -40,9 +40,12 @@
 			});
 
 			document.querySelector('button').addEventListener('click', sendLike);
-			
+
 			thread.addEventListener('message', function(event) {
 				output.value = event.data;
+			});
+			thread.addEventListener('error', function(event) {
+				output.value = 'error with the worker :( | ' + event.message + ' on line ' + event.lineno;
 			});
 		</script>
 	</body>
