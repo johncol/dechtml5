@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>date</title>
+    <link rel="stylesheet" href="../jquery-ui-1.10.2/themes/base/jquery.ui.all.css">
+    <script src="../jquery-ui-1.10.2/jquery-1.9.1.js"></script>
+    <script src="../jquery-ui-1.10.2/ui/jquery-ui.js"></script>
+</head>
+<body>
+	<form action="">
+		<input type="date" min="2012-01-01" max="2013-12-31" step=7 required id="my-date-field" />
+		<input type="submit" />
+	</form>
+
+    <script>
+		(function($) {
+			if (!('date' id document.createElement('input'))) {
+				$('#my-date-field').datepicker();
+			}
+		}(jQuery));
+    </script>
+</body>
+</html>

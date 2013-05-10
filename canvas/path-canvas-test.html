@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>canvas: path</title>
+    <style>
+    canvas#lab {
+    	display: block;
+    	margin: 10px auto;
+    	border: 1px solid #999;
+    }
+    </style>
+</head>
+<body>
+<canvas id="lab" width="300" height="200"></canvas>
+<button type="button">go</button>
+<script src="../jquery-1.9.1.js"></script>
+<script>
+var canvas = document.querySelector('canvas#lab'),
+	context = canvas.getContext('2d'),
+	width = canvas.width,
+	height = canvas.height;
+var length = {
+	x: canvas.width,
+	y: canvas.height
+}, change = {
+	x: length.x / 20,
+	y: length.y / 20
+};
+
+document.getElementsByTagName('button')[0].addEventListener('click', function(event) {
+	this.disabled = true;
+	context.beginPath();
+	context.moveTo(change.x, change.y);
+	context.lineTo(length.x - 1 * change.x, 	change.y);
+	context.lineTo(length.x - 1 * change.x, 	length.y - 1 * change.y);
+	context.lineTo(change.x, 					length.y - 1 * change.y);
+	context.lineTo(change.x, 					2 * change.y);
+	context.lineTo(length.x - 2 * change.x, 	length.y - 2 * change.y);
+	context.lineTo(length.x - 2 * change.x, 	2 * change.y);
+	context.lineTo(2 * change.x, 				length.y - 2 * change.y);
+	context.lineTo(2 * change.x, 				length.y - 2 * change.y);
+	context.lineTo(length.x - 3 * change.x, 	length.y - 2 * change.y);
+	context.lineTo(2 * change.x,			 	4 * change.y);
+	context.lineTo(2 * change.x,			 	length.y - 4 * change.y);
+	context.lineTo(length.x - 4 * change.x,		2 * change.y);
+	context.lineTo(3 * change.x,				2 * change.y);
+	context.lineTo(length.x - 3 * change.x,		length.y - 5 * change.y);
+	context.stroke();
+});
+
+</script>
+</body>
+</html>

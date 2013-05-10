@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>feature detection</title>
+    <style>
+    	
+    </style>
+</head>
+<body>
+	
+	<section role="main-container">
+		<ul>
+			
+		</ul>
+	</section>
+
+    <script src="jquery-1.9.1.js"></script>
+    <script>
+	(function($) {
+    	var container = $('section[role=main-container]');
+    	var list = container.children('ul');
+    	var newAttributes = [
+    		'min', 
+    		'max',
+    		'low',
+    		'optimum',
+    		'high',
+    		'step',
+    		'placeholder',
+    		'autofocus',
+    		'required'
+    	];
+
+    	console.log('START');
+    	[].forEach.call(newAttributes, function(attribute) {
+    		console.log(attribute);
+    	});
+    	console.log('END-START');
+    	$.each(newAttributes, function(index, attribute) {
+    		console.log(index + '-' + attribute);
+    	});
+    	console.log('END');
+
+    	$.each(newAttributes, function(index, attribute) {
+    		list.append($('<li></li>').html(attribute + ': ' + supportsAttribute(attribute)));
+    	});
+
+    	function supportsAttribute(attribute) {
+    		return !!(attribute in document.createElement('input'));
+    	}
+	}(jQuery));
+    </script>
+</body>
+</html>

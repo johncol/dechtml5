@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>data atributtes</title>
+    <style>
+    	ul[data-mainnav] {
+			color: #00C;    		
+    	}
+    </style>
+</head>
+<body>
+	<nav>
+		<ul data-mainnav>
+			<li data-target=dislikes data-owner=usa-goverment>some text or link</li>
+			<li data-target=likes>some text or link</li>
+			<li data-target=politcs>some text or link</li>
+			<li data-target=home data-prov-owner=me>some text or link</li> <!-- becomes a dataset.provOwner -->
+			<li data-target="whatever the fuck u want">some text or link</li>
+		</ul>
+	</nav>
+
+	<nav>
+		<ul>
+			<li>some text or link</li>
+			<li>some text or link</li>
+			<li>some text or link</li>
+			<li>some text or link</li>
+			<li>some text or link</li>
+		</ul>
+	</nav>
+    <script>
+    	var links = document.querySelectorAll('ul[data-mainnav] li');
+    	[].forEach.call(links, function(link) {
+    		link.addEventListener('click', function(event) {
+    			console.log('--------------------------------');
+    			console.log(this.dataset);
+    			console.log(this.dataset.length);
+    			console.log('dataset.target: ' + this.dataset.target);
+    			console.log('getAttribute("data-target"): ' + this.getAttribute('data-target'));
+    		});
+    	});
+    </script>
+</body>
+</html>

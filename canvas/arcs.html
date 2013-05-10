@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>canvas arcs</title>
+    <style>
+    canvas {
+    	display: block;
+    	margin: 10px auto;
+    	border: 1px solid #999;
+    }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="400" height="300"></canvas>
+<script>
+var canvas = document.querySelector('canvas')
+	ctx = canvas.getContext('2d'),
+	startX = canvas.width * 0.5,
+	startY = canvas.height * 0.75,
+	radio = 150, 
+	angleChange = 0.40,
+	startAngle = Math.PI + Math.PI * angleChange,
+	endAngle = Math.PI + Math.PI * (1.0 - angleChange);
+
+console.log('startX: ' + startX);
+console.log('startY: ' + startY);
+console.log('radio: ' + radio);
+console.log('startAngle: ' + startAngle);
+console.log('endAngle: ' + endAngle);
+
+ctx.beginPath();
+ctx.moveTo(startX, startY);
+ctx.arc(startX, startY, radio, startAngle, endAngle, false);
+ctx.lineTo(startX, startY);
+ctx.closePath();
+ctx.strokeStyle = '#900';
+ctx.stroke();
+
+ctx.beginPath();
+ctx.arc(50, 50, 30, 0, Math.PI, true);
+ctx.closePath();
+ctx.fill();
+
+</script>
+</body>
+</html>

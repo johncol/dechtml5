@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { 
+        height: 100% 
+      }
+      body { 
+        height: 100%; 
+        margin: 0; 
+        padding: 0;
+        background: #222;
+      }
+      #map_canvas { 
+        width: 85%;
+        height: 80%;
+        margin: 70px auto;
+        border: 9px solid #111;
+        border-radius: 2px;
+        box-shadow: 0 0 9px rgba(0,0,0,0.6);
+      }
+    </style>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDTpG9wu7so09wePBftNjTEJZlzq6MjVO4&sensor=false"> </script>
+  </head>
+  <body>
+    <div id="map_canvas"></div>
+    <script type="text/javascript">
+    (function(){
+      var latitude = -34.397;
+      var longitude = 150.644;
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(location) {
+          latitude = location.coords.latitude;
+          longitude = location.coords.longitude;
+          loadMap(latitude, longitude);
+        });
+      } else {
+        loadMap(latitude, longitude);
+      }
+      function loadMap(latitude, longitude) {
+        var coords = new google.maps.LatLng(latitude, longitude);
+        var mapOptions = {
+          center: coords,
+          zoom: 17,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+        var marker = new google.maps.Marker({
+          position: coords,
+          map: map
+        });
+      }
+    }());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>set interval</title>
+    <style>
+    </style>
+</head>
+<body>
+<button type="button" id="start">start</button>
+<button type="button" id="stop">stop</button>
+<ul>
+</ul>
+<script src="jquery-1.9.1.js"></script>
+<script>
+	var start = document.querySelector('#start'),
+		stop = document.querySelector('#stop'),
+		list = document.querySelector('ul'),
+		thread;
+	stop.disabled = true;
+
+	function enableStart(startable) {
+		start.disabled = !startable;
+		stop.disabled = startable;
+	}	
+
+	start.addEventListener('click', function(event) {
+		thread = setInterval(function() {
+			var item = document.createElement('li');
+			item.innerHTML = 'item' + Math.round(Math.random() * 1000);
+			list.appendChild(item);
+		}, 1000);
+		enableStart(false);
+	});
+
+	stop.addEventListener('click', function() {
+		clearInterval(thread);
+		enableStart(true);
+	});
+</script>
+</body>
+</html>

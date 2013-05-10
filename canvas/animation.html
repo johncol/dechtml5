@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>canvas: animation</title>
+    <style>
+    canvas#lab {
+    	display: block;
+    	margin: 10px auto;
+    	border: 1px solid #999;
+    }
+    button {
+        display: block;
+        width: 100px;
+    }
+    </style>
+</head>
+<body>
+<canvas id="lab" width="400" height="300"></canvas>
+<button>go</button>
+<script src="../jquery-1.9.1.js"></script>
+<script>
+var canvas = document.querySelector('canvas#lab'),
+	ctx = canvas.getContext('2d'),
+    radio = 6,
+    position = {
+        x: radio,
+        y: radio
+    }, 
+    direction = {
+        x: 1,
+        y: 1
+    };
+
+ctx.strokeStyle = 'rgba(0, 100, 200, 0.4)';
+ctx.fillStyle = 'rgba(0, 100, 200, 0.4)';
+ctx.lineCap = 'round';
+ctx.lineWidth = radio * 2;
+ctx.beginPath();
+ctx.moveTo(position.x, position.y);
+
+function moveBall() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // ctx.arc(position.x, position.y, radio, 0, Math.PI * 2, true);
+    // ctx.fill();
+    
+    ctx.fillRect(position.x, position.y, radio*3, radio*3);
+    ctx.fill();
+    
+    // ctx.lineTo(position.x, position.y);
+    // ctx.stroke();
+
+    position.x += direction.x;
+    position.y += direction.y;
+
+    if (position.x + radio >= canvas.width || position.x - radio <= 0) {
+        direction.x *= -1; 
+    } 
+    if (position.y + radio >= canvas.height || position.y - radio <= 0) {
+        direction.y *= -1; 
+    } 
+}
+
+var moveThread = null;
+document.querySelector('button').addEventListener('click', function() {
+    if (moveThread === null) {
+        moveThread = setInterval(moveBall, 1);
+        this.innerHTML = 'stop';
+    } else {
+        clearInterval(moveThread);
+        moveThread = null
+        this.innerHTML = 'go';
+    }
+})
+
+</script>
+</body>
+</html>

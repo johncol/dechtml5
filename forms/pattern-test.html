@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>patterns, maxlength attribute</title>
+    <style>
+    	form {
+    		font: small/1 Tahoma, sans-serif;
+    		color: #333;
+	    }
+	    label {
+			text-transform: capitalize;
+	    }
+    	input[type=text] {
+    		width: 250px;
+    		font: inherit;
+    		color: inherit;
+    		padding: 5px 4px 2px;
+    		border: 1px solid #999;
+    		border-radius: 2px;
+    		display: block;
+			margin: 1px 0 10px;
+    	}
+    	.note {
+    		font-size: 85%;
+    		color: #BBB;
+			margin: 0 5px;
+			text-transform: lowercase;
+    	}
+    	.note:before {
+    		content: '(';
+    	}
+    	.note:after {
+    		content: ')';
+    	}
+    </style>
+</head>
+<body>
+	<form>
+		<label for="username">username</label><span class=note>Must be between 3 and 10 characters</span>
+		<input type="text" id="username" name="username" required pattern="\w{3,10}" />
+		<label for="something">something</label><span class=note>Maxlength is 5</span>
+		<input type="text" id="something" name="something" required maxlength=5 />
+		<input type="submit" />
+	</form>
+</body>
+</html>

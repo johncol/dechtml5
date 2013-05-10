@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>progress</title>
+    <style>
+    	#progress {
+            display: block;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <span>Progress</span>
+    <button type=button role=start>Make it work!</button>
+    <button type=button role=restart>Restart</button>
+    <progress min=0 low=25 optimum=50 high=75 max=100 value=0 id="progress" />
+    <script>
+        var progress = document.getElementById('progress');
+        console.log(progress);
+        console.log(progress.min);
+        console.log(progress.max);
+        console.log(progress.value);
+
+        document.querySelector('body button:first-of-type').addEventListener('click', function() {
+            var thread = setInterval(function() {
+                if (progress.max === progress.value) {
+                    clearInterval(thread);
+                } else {
+                    progress.value = progress.value + 1;
+                }
+            }, 10);
+        });
+
+        document.querySelector('button[role=restart]').addEventListener('click', function() {
+            progress.value = 0;
+        });
+    </script>
+</body>
+</html>

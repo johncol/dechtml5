@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>geolocation test</title>
+    <script src="modernizr.custom.22821.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+<script src="jquery-1.9.1.js"></script>
+<script>
+	console.log(document.geolocation ? 'document.geolocation' : 'NO document.geolocation');
+	console.log(navigator.geolocation ? 'navigator.geolocation' : 'NO navigator.geolocation');
+	console.log(Modernizr.geolocation ? 'Modernizr.geolocation' : 'NO Modernizr.geolocation');
+
+
+	// watchPosition -> continuo.. registra los cambios en la posicion
+	// getCurrentPosition -> instantaneo
+	navigator.geolocation.getCurrentPosition(function(location) {
+		console.log('We´ve recorded your position');
+		console.log(location);
+		console.log(location.coords);
+		console.log('latitude' ,location.coords.latitude);
+		console.log('longitude', location.coords.longitude);
+	}, function() {
+		console.log('We could not record your position');
+	}, {
+		enableHighAccuracy: true, // slower, but more accurate
+		timeout: 15000, // expressed in milliseconds (15 seconds)
+		maximumAge: 0 // means, acquire a new position
+	});
+
+	var watch = navigator.geolocation.watchPosition(function(location) {
+		console.log('We´ve recorded your position');
+	}, function() {
+		console.log('We could not record your position');
+	});
+
+	// and some time after
+	navigator.geolocation.clearWatch(watch);
+
+</script>
+</body>
+</html>

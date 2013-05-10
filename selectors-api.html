@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>selector API</title>
+</head>
+<body>
+	<p id="first-p">Lorem ipsum dolor sit amet 1</p>
+	<p class="other-p">Lorem ipsum dolor sit amet 2</p>
+	<p>Lorem ipsum dolor sit amet 3</p>
+
+	<section role="main">
+		<p>Lorem ipsum dolor sit.4</p>
+		<p>Lorem ipsum dolor sit.5</p>
+		<p>Lorem ipsum dolor sit.6</p>
+	</section>
+
+	<section role="many-ps">
+		<h1>heading1</h1>
+		<h2>heading2</h2>
+		<p>Lorem ipsum dolor sit.10</p>
+		<p>Lorem ipsum dolor sit.11</p>
+		<p>Lorem ipsum dolor sit.12</p>
+		<p>Lorem ipsum dolor sit.13</p>
+		<p>Lorem ipsum dolor sit.14</p>
+		<p>Lorem ipsum dolor sit.15</p>
+		<p>Lorem ipsum dolor sit.16</p>
+	</section>
+
+	<section role=for-matcher>
+		<p><a href="#">whatever</a></p>
+	</section>
+
+    <script>
+    	var firstP = document.getElementById('first-p');
+		console.log(firstP);
+
+		var otherP = document.getElementsByClassName('other-p');
+		console.log(otherP);
+
+		var paragraphs = document.getElementsByTagName('p');
+		console.log(paragraphs);
+
+		// querySelector solo retorna el primer elemento que cumpla con los criterios del selector
+
+		var qS1 = document.querySelector('#first-p');
+		console.log(qS1);
+
+		var qS2 = document.querySelector('.other-p');
+		console.log(qS2);
+
+		var qS3 = document.querySelector('p');
+		console.log(qS3);
+
+		var mainSection = document.querySelector('section[role=main]');
+
+		var qS4 = mainSection.querySelector('p');
+		console.log(qS4);
+
+		// querySelectorAll retorna todos los elementos que cumplan con los criterios del selector
+
+		var qSA1 = document.querySelectorAll('section[role=many-ps] p');
+		console.log(qSA1);
+
+		[].forEach.call(qSA1, function(paragraph) {
+			paragraph.addEventListener('contextmenu', function(event) {
+				console.log('Cliked on: ' + paragraph.innerHTML);
+			}
+		)});
+
+		var qSA2 = document.querySelectorAll('h1, h2');
+		console.log(qSA2);
+
+		// matchesSelector, which allows us to determine whether a DOM element matches a specified selector.
+		
+		var s1 = document.querySelector('section[role=for-matcher] a');
+		console.log(s1);
+
+		function howItShouldBe() {
+			console.log(s1.matchesSelector('section a'));
+			console.log(s1.matchesSelector('section>a'));
+			console.log(s1.matchesSelector('section p a'));
+			console.log(s1.matchesSelector('section>p>a'));
+			console.log(s1.matchesSelector('a.elefant'));
+			console.log(s1.matchesSelector('a#theA'));
+			console.log(s1.matchesSelector('section[role=for-matcher] a'));
+		}
+
+		function howItIsOnMozilla() {
+			console.log(s1.mozMatchesSelector('section a'));
+			console.log(s1.mozMatchesSelector('section>a'));
+			console.log(s1.mozMatchesSelector('section p a'));
+			console.log(s1.mozMatchesSelector('section>p>a'));
+			console.log(s1.mozMatchesSelector('a.elefant'));
+			console.log(s1.mozMatchesSelector('a#theA'));
+			console.log(s1.mozMatchesSelector('section[role=for-matcher] a'));
+		}
+
+		function howItIsOnWebkit() {
+			console.log(s1.webkitMatchesSelector('section a'));
+			console.log(s1.webkitMatchesSelector('section>a'));
+			console.log(s1.webkitMatchesSelector('section p a'));
+			console.log(s1.webkitMatchesSelector('section>p>a'));
+			console.log(s1.webkitMatchesSelector('a.elefant'));
+			console.log(s1.webkitMatchesSelector('a#theA'));
+			console.log(s1.webkitMatchesSelector('section[role=for-matcher] a'));
+		}
+
+		howItIsOnWebkit();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>serialize form data and save it</title>
+    <style>
+    </style>
+</head>
+<body>
+	<form action="" method="post" id="form">
+		<label for="name">name: </label><br />
+		<input type="text" id="name" name="name" /><br />
+		<label for="lastname">lastname: </label><br />
+		<input type="text" id="lastname" name="lastname" /><br />
+		<label for="email">email: </label><br />
+		<input type="email" id="email" name="email" /><br />
+		<label for="phone">phone: </label><br />
+		<input type="tel" id="phone" name="phone" /><br />
+		<label for="message">message: </label><br />
+		<textarea id="message" name="message" rows="5" cols="30"></textarea><br />
+		<input type="submit" />
+	</form>
+	<section id="deserilized-data">
+		
+	</section>
+<script src="../jquery-1.9.1.js"></script>
+<script>
+	var section = $('#deserilized-data');
+	var form = $('#form');
+	form.on('blur', 'input', saveData);
+	form.on('blur', 'textarea', saveData);
+	function saveData(event) {
+		localStorage.formData = form.serialize();
+		showNewData();
+	}
+	function showNewData() {
+		var data = localStorage.getItem('formData');
+		var formValues = data.split('&');
+		section.html('');
+		$.each(formValues, function(index, pair) {
+			pair = pair.split('=');
+			var name = pair[0];
+			var value = pair[1];
+			section.append($('<li>').append(name + ' = ' + value));
+		});
+	}
+</script>
+</body>
+</html>

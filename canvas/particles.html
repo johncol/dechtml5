@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>canvas particles</title>
+    <style>
+    html, body {
+		padding: 0;
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+    }
+    canvas {
+    	display: block;
+    }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="2100" height="1000"></canvas>
+<script>
+var canvas = document.querySelector('canvas'),
+	ctx = canvas.getContext('2d');
+
+var particles = [];
+
+function generateParticle() {
+	if (particles.length >= 3000) {
+		return;
+	}
+	var gray = Math.round(Math.random() * 255);
+	particles.push({
+		x: Math.random() * canvas.width,
+		y: 0,
+		radius: Math.random() * 15,
+		speed: Math.random() * 4,
+		wind: Math.random() / 5,
+		color: 'rgb(' + [gray, gray, gray].join(',') + ')'
+	});
+}
+
+function draw() {
+	clearCanvas();
+	for (var i = 0; i < particles.length; i++) {
+		var particle = particles[i];
+		if (particle.x >= canvas.width) {
+			particle.x = 0;
+		}
+		if (particle.y >= canvas.height) {
+			particle.y = 0;
+		}
+		ctx.beginPath();
+		ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2, false);
+		ctx.closePath();
+		ctx.fillStyle = particle.color;
+		ctx.fill();
+	};
+}
+
+function updatePosition() {
+	for (var i = 0; i < particles.length; i++) {
+		var particle = particles[i];
+		particle.x += particle.wind;
+		particle.y += particle.speed;
+	}
+}
+
+function clearCanvas() {
+	ctx.fillStyle = '#111';
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+setInterval(function() {
+	generateParticle();
+	draw();
+	updatePosition();
+}, 20);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>details test</title>
+	<style>
+		body { font-family: sans-serif; }
+		details {
+		overflow: hidden;
+		background: #e3e3e3;
+		margin-bottom: 10px;
+		display: block;
+		}
+		details summary {
+		cursor: pointer;
+		padding: 10px;
+		}
+		details div {
+		float: left;
+		width: 65%;
+		}
+		details div h3 { margin-top: 0; }
+		details img {
+		float: left;
+		width: 200px;
+		padding: 0 30px 10px 10px;
+		}
+		details summary::-webkit-details-marker {
+		color: green;
+		font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<p>It essentially allows us to show and 
+hide content with the click of a button. 
+You’re surely familiar with this type of 
+effect, but up until now, it had always 
+been achieved with JavaScript. Imagine 
+a heading with an arrow next to it, 
+and when you click on it, additional 
+information below becomes visible. 
+Clicking the arrow again hides the 
+content.</p>
+	<details>
+		<summary>Ultima noticia</summary>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, minima ipsam consectetur?
+		</p>
+	</details>
+	<details>
+		<summary>Dig Into Dojo</summary>
+		<img src="http://img1.ak.crunchyroll.com/i/spire4/878732219d36e5669df03cc60862c84d1364419899_large.jpg" alt="Dojo" />
+		<div>
+			<h3>Dig into Dojo: DOM Basics</h3>
+			<p>
+				Maybe you saw that tweet: “Query is a gateway drug.
+It leads to full-on JavaScript usage.” Part of that
+addiction, I contend, is learning other JavaScript
+frameworks. And that’s what this four-part series
+on the incredible Dojo Toolkit is all about: taking
+you to the next level of your JavaScript addiction.
+			</p>
+		</div>
+	</details>
+</body>
+</html>

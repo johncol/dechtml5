@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>
+			web storage
+		</title>
+	</head>
+	<body>
+		<form>
+			<input type="text" id="name" />
+			=
+			<input type="text" id="value" />
+			<button type="button">
+				save
+			</button>
+		</form>
+		<div id="container">
+			<p id="p1">
+			</p>
+			<p id="p2">
+			</p>
+			<p id="p3">
+			</p>
+			<p id="p4">
+			</p>
+			<p id="p5">
+			</p>
+			<p id="p6">
+			</p>
+		</div>
+		<script src="jquery-1.9.1.js">
+						
+		</script>
+		<script>
+			localStorage.author = 'john';
+			document.querySelector('#p1').innerHTML = 'author: ' + localStorage.author;
+
+			localStorage['year'] = 2013;
+			document.querySelector('#p2').innerHTML = 'year: ' + localStorage['year'];
+
+			localStorage.setItem('editor', 'sublime text 2');
+			document.querySelector('#p3').innerHTML = 'editor: ' + localStorage.getItem('editor');
+
+			localStorage.office = false;
+			document.querySelector('#p4').innerHTML = 'office: ' + localStorage.getItem('office');
+
+			localStorage.removeItem('office');
+			delete localStorage.office;
+			localStorage.office = null;
+			document.querySelector('#p5').innerHTML = 'office: ' + localStorage.getItem('office');
+
+			console.log(localStorage);
+			localStorage.clear();
+			console.log(localStorage);
+
+			document.querySelector('button').addEventListener('click', function() {
+				var name = document.querySelector('#name').value;
+				var value = document.querySelector('#value').value;
+				localStorage.setItem(name, value);
+			});
+		</script>
+	</body>
+
+</html>

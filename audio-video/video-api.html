@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>video api</title>
+    <style>
+    	button {
+    		width: 90px;
+    	}
+    </style>
+</head>
+<body>
+<section role="video-container">
+	<video controls preload="auto" poster="videos/poster.png">
+		<source src="videos/Cradled_in_Love.m4v" type="video/mp4" />
+		<source src="videos/Cradled_in_Love.webm" type="video/webm" />
+		<source src="videos/Cradled_in_Love.ogv" type="video/ogg" />
+	</video>
+	<section role=video-controls>
+		<button role=play>Play</button>
+		<button role=stop>Stop</button>
+		<button role=vol-down>Vol -</button>
+		<button role=vol-up>Vol +</button>
+		<button role=mute>Mute</button>
+		<button role=full-screen>FullScrren</button>
+	</section>
+</section>
+<script src="../jquery-1.9.1.js"></script>
+<script>
+	var video = document.querySelector('video');
+	var playButton = document.querySelector('button[role=play]');
+	var stopButton = document.querySelector('button[role=stop]');
+	var volUpButton = document.querySelector('button[role=vol-up]');
+	var volDownButton = document.querySelector('button[role=vol-down]');
+	var muteButton = document.querySelector('button[role=mute]');
+	var fullScreenButton = document.querySelector('button[role=full-screen]');
+
+	var fullScreen = video.requestFullScreen || video.webkitRequestFullScreen || video.mozRequestFullScreen;
+
+	playButton.addEventListener('click', function() {
+		if (video.paused) {
+			playVideo();
+		} else {
+			pauseVideo();
+		}
+		printVideoInfo();
+	});
+
+	stopButton.addEventListener('click', function() {
+		pauseVideo();
+		video.currentTime = 0;
+		printVideoInfo();
+	});
+
+	volDownButton.addEventListener('click', function() {
+		changeVol(-0.1);
+		printVideoInfo();
+	});
+
+	volUpButton.addEventListener('click', function() {
+		changeVol(0.1);
+		printVideoInfo();
+	});
+
+	muteButton.addEventListener('click', function() {
+		muteVideo();
+		printVideoInfo();
+	});
+
+	fullScreenButton.addEventListener('click', function() {
+		fullScreen.call(video);
+	});
+
+	function printVideoInfo() {
+		console.log('------ video info ----------------');
+		console.log('Duration: ' + video.duration);
+		console.log('Current time: ' + video.currentTime);
+		console.log('Is paused: ' + video.paused);
+		console.log('Is muted: ' + video.muted);
+		console.log('Volume: ' + video.volume);
+	}
+
+	function playVideo() {
+		video.play();
+		playButton.innerHTML = 'Pause';
+	}
+
+	function pauseVideo() {
+		video.pause();
+		playButton.innerHTML = 'Play';
+	}
+
+	function changeVol(rate) {
+		var volume = video.volume + rate;
+		if (volume >= 0 && volume <= 1) {
+			video.volume = volume;
+		}
+	}
+
+	function muteVideo() {
+		video.muted = !video.muted;
+	}
+</script>
+</body>
+</html>

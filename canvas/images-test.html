@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>canvas: linear gradient</title>
+    <style>
+    canvas#lab {
+    	display: block;
+    	margin: 10px auto;
+    	border: 1px solid #999;
+    }
+    </style>
+</head>
+<body>
+<canvas id="lab" width="900" height="400"></canvas>
+<script src="../jquery-1.9.1.js"></script>
+<script>
+var canvas = document.querySelector('canvas#lab'),
+	context = canvas.getContext('2d'),
+	image = new Image(),
+    dif = 25;
+
+image.src = '../imgs/2.jpg';
+
+image.onload = function() {
+    var imagePattern = context.createPattern(image, 'no-repeat');
+    context.fillStyle = imagePattern;
+    context.fillRect(dif, dif, canvas.width - 2 * dif, canvas.height - 2 * dif);
+};
+
+</script>
+</body>
+</html>

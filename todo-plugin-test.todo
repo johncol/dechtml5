@@ -1,0 +1,14 @@
+Hacer sketch:
+Hacerlo con balsamiq mockups, medir el tiempo
+ ☐ Hacer sketch en balsamiq
+ Implementar el sketch:
+  ☐ utilizar boilerplate
+  ☐ que todo el sitio sea una sola pagina
+  ☐ que tenga varios elementos de html5: canvas, video, audio, css3 fonts, formulario de prueba, mapa de google
+  ☐ utilizar modernizr
+
+Probando TODO plugin:
+ ✔ done task @done (13-05-08 19:18)
+ ✘ cancelled task @cancelled (13-05-08 19:18)
+ ☐ pending task @tag-example
+ ☐ leer algo: http:www.google.com - go with ctrl + shift + u con el cursos sobre la url

@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JSON</title>
+    <style>
+    </style>
+</head>
+<body>
+<script src="../jquery-1.9.1.js"></script>
+<script>
+	var author = {
+		name: 'john',
+		age: 23,
+		graduated: false,
+		email: 'john.19col@gmail.com'
+	};
+	localStorage.setItem('author', JSON.stringify(author));
+
+	var authorInfo = localStorage['author'];
+	console.log('AUTHOR: ' + typeof(authorInfo));
+	console.log(authorInfo);
+	console.log('PARSE JSON AUTHOR: ' + typeof(JSON.parse(authorInfo)));
+	console.log(JSON.parse(localStorage['author']));
+</script>
+</body>
+</html>

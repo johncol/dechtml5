@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>canvas: bezier and curves</title>
+    <style>
+    canvas#lab {
+    	display: block;
+    	margin: 10px auto;
+    	border: 1px solid #999;
+    }
+    </style>
+</head>
+<body>
+<canvas id="lab" width="400" height="300"></canvas>
+<script src="../jquery-1.9.1.js"></script>
+<script>
+var canvas = document.querySelector('canvas#lab'),
+	context = canvas.getContext('2d');
+
+context.lineWidth = 4;
+context.strokeStyle = "#666";
+
+context.beginPath();
+// cp = control point. bezierCurveTo(cp1x, cp1y, x, y, cp2x, cp2y)
+context.bezierCurveTo(50, 50, 10, 450, canvas.width - 50, 50);
+context.stroke();
+context.closePath();
+
+// arc(x, y, radius, startAngle, endAngle, anticlockwise)
+context.strokeStyle = "#669";
+
+context.beginPath();
+context.arc(canvas.width / 2, canvas.height / 2, 10, 0, Math.PI * 0.5, false);
+context.stroke();
+
+context.beginPath();
+context.arc(canvas.width / 2, canvas.height / 2, 30, 0, Math.PI * 1.0, false);
+context.stroke();
+
+context.beginPath();
+context.arc(canvas.width / 2, canvas.height / 2, 50, 0, Math.PI * 1.5, false);
+context.stroke();
+
+context.beginPath();
+context.arc(canvas.width / 2, canvas.height / 2, 70, 0, Math.PI * 2.0, false);
+context.stroke();
+</script>
+</body>
+</html>
