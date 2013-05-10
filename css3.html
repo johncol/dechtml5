@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>css3</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+    	p {
+    		width: 300px;
+    		border: 1px solid #999;
+    		margin: 10px auto;
+    		transition: background 1s ease-in;
+    	}
+    	p:before {
+    		content: attr(id);
+    	}
+    	#p1 {
+    		-webkit-transform: scale(0.8);
+    	}
+    	#p2 {
+    		-webkit-transform: scaleX(1.5);
+    	}
+    	#p3 {
+    		-webkit-transform: scaleY(0.5);
+    	}
+    	#p4 {
+    		-webkit-transform: scale(2, 0.9);
+    	}
+    	#p5 {
+    		-webkit-transform: rotate(30deg);
+    	}
+    	#p6 {
+    		-webkit-transform: translate(100px);
+    	}
+    	#p7 {
+    		-webkit-transform: translateX(100px);
+    	}
+    	#p8 {
+    		-webkit-transform: translateY(-25px);
+    	}
+    	#p9 {
+    		-webkit-transform: translate(100px, 30px);
+    	}
+    	p:hover {
+    		background: rgba(100,100,100,0.3);
+    	}
+    	/**/
+    	/* Selecciona todos los enlaces que apuntan a una dirección de correo electrónico */
+		a[href^="mailto:"] { ... }
+		 
+		/* Selecciona todos los enlaces que apuntan a una página HTML */
+		a[href$=".html"] { ... }
+		 
+		/* Selecciona todos los títulos h1 cuyo atributo title contenga la palabra "capítulo" */
+		h1[title*="capítulo"] { ... }
+
+		h1 + h2 { ... }  /* selector adyacente */
+		h1 ~ h2 { ... }  /* selector general de hermanos */
+    </style>
+</head>
+<body>
+<p id="p0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, veniam, enim, facere molestiae iste magnam aliquam dignissimos placeat ipsum ipsa eligendi laudantium quisquam nulla voluptates suscipit earum eaque. Officia, doloremque!</p>
+<p id="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, veniam, enim, facere molestiae iste magnam aliquam dignissimos placeat ipsum ipsa eligendi laudantium quisquam nulla voluptates suscipit earum eaque. Officia, doloremque!</p>
+<p id="p2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, veniam, enim, facere molestiae iste magnam aliquam dignissimos placeat ipsum ipsa eligendi laudantium quisquam nulla voluptates suscipit earum eaque. Officia, doloremque!</p>
+<p id="p3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, veniam, enim, facere molestiae iste magnam aliquam dignissimos placeat ipsum ipsa eligendi laudantium quisquam nulla voluptates suscipit earum eaque. Officia, doloremque!</p>
+<p id="p4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, veniam, enim, facere molestiae iste magnam aliquam dignissimos placeat ipsum ipsa eligendi laudantium quisquam nulla voluptates suscipit earum eaque. Officia, doloremque!</p>
+<p id="p5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, veniam, enim, facere molestiae iste magnam aliquam dignissimos placeat ipsum ipsa eligendi laudantium quisquam nulla voluptates suscipit earum eaque. Officia, doloremque!</p>
+<p id="p6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, veniam, enim, facere molestiae iste magnam aliquam dignissimos placeat ipsum ipsa eligendi laudantium quisquam nulla voluptates suscipit earum eaque. Officia, doloremque!</p>
+<p id="p7">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, veniam, enim, facere molestiae iste magnam aliquam dignissimos placeat ipsum ipsa eligendi laudantium quisquam nulla voluptates suscipit earum eaque. Officia, doloremque!</p>
+<p id="p8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, veniam, enim, facere molestiae iste magnam aliquam dignissimos placeat ipsum ipsa eligendi laudantium quisquam nulla voluptates suscipit earum eaque. Officia, doloremque!</p>
+<p id="p9">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, veniam, enim, facere molestiae iste magnam aliquam dignissimos placeat ipsum ipsa eligendi laudantium quisquam nulla voluptates suscipit earum eaque. Officia, doloremque!</p>
+<script src="js/jquery-1.9.1.js"></script>
+<script>
+</script>
+</body>
+</html>
