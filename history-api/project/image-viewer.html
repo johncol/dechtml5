@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>image viewer with navigation history</title>
+    <style>
+    a { text-decoration: none; color: #00C; }
+    a:hover { text-decoration: underline; }
+    li { display: inline-block; margin: 0 15px; }
+    </style>
+</head>
+<body>
+
+<ul id="list">
+	<li><a href="imgs/1.jpg" title="Image test number 1" data-url="img1">Image 1</a></li>
+	<li><a href="imgs/2.jpg" title="Image test number 2" data-url="img2">Image 2</a></li>
+	<li><a href="imgs/3.jpg" title="Image test number 3" data-url="img3">Image 3</a></li>
+</ul>
+
+<div id="result">
+	<script type="template" id="template">
+		<h2>{{title}}</h2>
+		<img src="{{imgSrc}}" alt="{{title}}" />
+	</script>
+</div>
+
+<script src="../../jquery-1.9.1.js"></script>
+<script>
+
+var Viewer = {
+
+	template: $('#template').html(),
+
+	container: $('#result'),
+
+	init: function(list) {
+		list.on('click', 'a', function() {
+			event.preventDefault();
+			Viewer
+				.updateHistory(this)
+				.applyTemplate(this);
+		});
+		this.handleState();
+	},
+
+	updateHistory: function(data) {
+		var dataToSave = {
+			title: data.title,
+			href: data.href,
+			url: data.dataset.url
+		};
+		history.pushState(dataToSave, data.title, 'image-viewer.html?img=' + data.dataset.url);
+		return this;
+	},
+
+	applyTemplate: function(data) {
+		var template = Viewer
+			.template
+			.replace(/{{title}}/gi, data.title)
+			.replace(/{{imgSrc}}/gi, data.href);
+		$(this.container)
+			.children(':not(#template)')
+			.remove()
+			.end()
+			.append(template);
+		return this;
+	},
+
+	handleState: function() {
+		$(window).on('popstate', function(event) {
+			if (event.originalEvent.state !== null) {
+				Viewer.applyTemplate(event.originalEvent.state);
+			}
+		});
+	}
+};
+
+Viewer.init($('ul#list'));
+
+</script>
+</body>
+</html>

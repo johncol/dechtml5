@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>title</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+    input { border: 1px solid; }
+    input:enabled { border-color: #009; }
+    input:disabled { border-color: #900; }
+    input:checked + label { font-weight: bold; }
+    </style>
+</head>
+<body>
+	<form action="#" method="post" id="form">
+		<label for="name">name: </label><br />
+		<input type="text" id="name" name="name" /><br />
+		<label for="lastname">lastname: </label><br />
+		<input type="text" id="lastname" name="lastname" /><br />
+		<label for="email">email: </label><br />
+		<input type="email" id="email" name="email" /><br />
+		<label for="phone">phone: </label><br />
+		<input type="tel" id="phone" name="phone" disabled /><br />
+		<label for="message">message: </label><br />
+		<textarea id="message" name="message" rows="5" cols="30"></textarea><br />
+		<input type="checkbox" id="subscribe" name="subscribe" />
+		<label for="subscribe">subscribe </label><br />
+		<input type="submit" />
+	</form>
+</body>
+</html>

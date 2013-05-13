@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>
+			box align
+		</title>
+		<style>
+			body, header * { margin: 0; padding: 0; } 
+			h1 { background: #EEE; } 
+			form { background: #EEA; }
+			header { 
+				padding: 10px 30px; 
+				border: 3px solid #999; 
+				display: -webkit-box; 
+				-webkit-box-orient: horizontal;
+				/*box-align: start;*/
+				/*box-align: end;*/
+				/*box-align: baseline;*/
+				/*box-align: center;*/
+				-webkit-box-align: center;
+			} 
+			h1 { 
+				display: -webkit-box;
+				-webkit-box-flex: 3; 
+			} 
+			form { 
+				display: -webkit-box; 
+				-webkit-box-flex: 1; 
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>
+				<img src="http://trickorzine.files.wordpress.com/2011/10/trick-r-treat.jpg" alt="trick or treat">
+			</h1>
+			<form>
+				<input type="search" />
+			</form>
+		</header>
+	</body>
+
+</html>

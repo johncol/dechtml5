@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>
+			structural pseudo classes
+		</title>
+		<style>
+			:root { }
+			
+			li:nth-child(3) { } /*3th child not fourth*/
+			li:nth-child(odd) { }
+			li:nth-child(2n+1) { }
+			li:nth-child(even) { }
+			li:nth-child(n) { }
+			li:nth-child(2n) { }
+			li:nth-child(3n) { }
+			li:nth-child(4n) { }
+			li:nth-child(4n+1) { }
+			li:nth-child(-n+3) { } /*first 3 lis*/
+			
+			li:nth-last-child(3) { }
+			li:nth-last-child(odd) { }
+			li:nth-last-child(2n+1) { }
+			li:nth-last-child(even) { }
+			li:nth-last-child(2n) { }
+			li:nth-last-child(n) { }
+			li:nth-last-child(3n) { }
+			li:nth-last-child(4n) { }
+			li:nth-last-child(4n+1) { }
+			li:nth-last-child(-n+3) { } /*last 3 lis*/
+			
+			li:nth-of-type(3) { }
+			li:nth-of-type(odd) { }
+			li:nth-of-type(2n+1) { }
+			li:nth-of-type(even) { }
+			li:nth-of-type(2n) { }
+			li:nth-of-type(n) { }
+			li:nth-of-type(3n) { }
+			li:nth-of-type(4n) { }
+			li:nth-of-type(4n+1) { }
+			li:nth-of-type(-n+3) { }
+			
+			li:nth-last-of-type(3) { }
+			li:nth-last-of-type(odd) { }
+			li:nth-last-of-type(2n+1) { }
+			li:nth-last-of-type(even) { }
+			li:nth-last-of-type(2n) { }
+			li:nth-last-of-type(n) { }
+			li:nth-last-of-type(3n) { }
+			li:nth-last-of-type(4n) { }
+			li:nth-last-of-type(4n+1) { }
+			li:nth-last-of-type(-n+3) { }
+
+			li:first-child { }
+			li:last-child { }
+			li:first-of-type { }
+			li:last-of-type { }
+
+			p:only-of-type { }
+			p:only-child { }
+
+			li:empty { color: red; }
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>Lorem ispum dolor1</li>
+			<li>Lorem ipsum dolor2</li>
+			<p>hola:)</p>
+			<li>Lorem ipsum dolor3</li>
+			<li>Lorem ipsum dolor4</li>
+			<li>Lorem ipsum dolor5</li>
+			<li>Lorem ipsum dolor6</li>
+			<li>Lorem ipsum dolor7</li>
+			<li>Lorem ipsum dolor8</li>
+			<li>Lorem ipsum dolor9</li>
+			<li>Lorem ipsum dolor10</li>
+			<li>Lorem ipsum dolor11</li>
+			<li>Lorem ipsum dolor12</li>
+			<li>Lorem ipsum dolor13</li>
+			<li>Lorem ipsum dolor14</li>
+			<li>Lorem ipsum dolor15</li>
+			<li>Lorem ipsum dolor16</li>
+			<li>Lorem ipsum dolor17</li>
+			<li>Lorem ipsum dolor18</li>
+			<li>Lorem ipsum dolor19</li>
+			<li>Lorem ipsum dolor20</li>
+			<li></li>
+			<blockquote><p>hola:)</p></blockquote>
+		</ul>
+	</body>
+</html>

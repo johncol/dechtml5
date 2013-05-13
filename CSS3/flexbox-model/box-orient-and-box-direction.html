@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>box-orient</title>
+    <style>
+    #container {
+    	display: -webkit-box;
+    	/*box-orient: block-axis; Lay out children along the block axis (map to vertical)*/
+    	/*box-orient: inline-axis; Lay out children along the inline axis (map to horizontal)*/
+    	/*box-orient: vertical; top to bottom vertically*/
+    	/*box-orient: horizontal; left to right in a horizontal line*/
+    	-webkit-box-orient: horizontal;
+    	/*box-direction: normal;*/
+    	/*box-direction: reverse;*/
+    	-webkit-box-direction: reverse;
+    }
+    #container section {
+    	width: 300px;
+    	border: 1px solid #999;
+    	margin: 10px;
+    }
+    </style>
+</head>
+<body>
+	<section id="container">
+		<section>
+			<p>ONE: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, adipisci enim tenetur saepe qui ad tempora earum ab a libero assumenda expedita quibusdam sapiente necessitatibus itaque harum possimus odit vero temporibus quam reiciendis error nulla obcaecati sint quod reprehenderit nisi perferendis explicabo ipsa eos voluptatem perspiciatis exercitationem non quae iusto ut alias excepturi laboriosam veritatis autem molestias similique. Deserunt, labore.</p>
+		</section>
+		<section>
+			<p>TWO: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, repellat, obcaecati, sed minima necessitatibus aliquid enim sequi accusamus cupiditate fugit at nostrum maxime maiores ipsam deserunt laboriosam atque delectus aspernatur magnam voluptatum. Sequi, iste dolore ratione temporibus aut facere sapiente consequatur voluptate amet. Autem, quia, ipsa, recusandae consectetur architecto ab temporibus officia atque deserunt soluta dicta expedita velit nostrum necessitatibus?</p>
+		</section>
+		<section>
+			<p>THREE: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, sunt, id, cupiditate ratione voluptas sequi veritatis iste ea necessitatibus sit molestias voluptate officia laudantium dolorem hic recusandae minus reprehenderit minima libero distinctio alias illo dignissimos delectus ipsa quas! Pariatur, voluptatum, nostrum odit quaerat blanditiis similique consequatur numquam repellendus doloribus explicabo? Delectus iusto optio fugit fuga explicabo autem nihil. Nesciunt, non.</p>
+		</section>
+	</section>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>history API</title>
+	<script src="../modernizr.custom.22821.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+	<a href="destination1.html">destination 1</a>
+	<section id="result"></section>
+<script src="../jquery-1.9.1.js"></script>
+<script>
+	var container = document.querySelector('section');
+	if (!Modernizr.history) {
+		container.innerHTML = 'This browser does not support the history API'
+	} else {
+		container.innerHTML = 'This browser supports the history API'
+		window.addEventListener('popstate', function(event) {
+			console.log('popstate event');
+			console.log(event);
+		});
+	}
+</script>
+</body>
+</html>
